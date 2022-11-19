@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>NoobNotFound.WinUI.Common</RootNamespace>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="ResourceDictionaries\Expanders.xaml" />
+    <None Remove="ResourceDictionaries\RightAlignedToggleSwitch.xaml" />
+    <None Remove="UI.Controls\Expander.xaml" />
+    <None Remove="UI.Controls\NavViewItem.xaml" />
+    <None Remove="UI.Controls\TenorFlyout.xaml" />
+    <None Remove="UI.Controls\TitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0-preview1" />
+	  <PackageReference Include="CommunityToolkit.WinUI.UI.Animations" Version="7.1.2" />
+	  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
+	  <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.220909.2-experimental2" />
+	  <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.25206-preview" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta3" />
+	  <PackageReference Include="PInvoke.User32" Version="0.7.124" />
+	  <PackageReference Include="WinUIEx" Version="1.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UI.Controls\NavViewItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="UI.Controls\TitleBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UI\Expander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="UI\TenorBrowser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>
