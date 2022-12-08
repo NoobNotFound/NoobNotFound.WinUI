@@ -17,6 +17,13 @@ namespace NoobNotFound.WinUI.Common.Models
             get => _ImageSource;
             set => SetProperty(ref _ImageSource, value);
         }
+        private bool _ShowLoad;
+
+        public bool ShowLoad
+        {
+            get => _ShowLoad;
+            set => SetProperty(ref _ShowLoad, value);
+        }
         private List<string> _Tags;
 
         public List<string> Tags
@@ -29,7 +36,7 @@ namespace NoobNotFound.WinUI.Common.Models
         {
             get => string.Join(", ", Tags);            
         }
-
+        public string SearchTerm { get; set; }
         public Helpers.Tenor.JSON.SearchResult.Result JSON { get; set; }
     }
 }

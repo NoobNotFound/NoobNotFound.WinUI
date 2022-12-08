@@ -42,8 +42,8 @@ namespace NoobNotFound.WinUI.Common.Helpers.Tenor
                 throw new Exception("Failed to get: " + code, ex);
             }
         }
-        public async Task RegisterShare(string id) =>
-            await Get(ToClientKeyUrl($"registershare?id={id}&key={APIKey}"));
+        public async Task RegisterShare(string id,string query) =>
+            await Get(ToClientKeyUrl($"registershare?id={id}&key={APIKey}&q={query}"));
         
         private string ToClientKeyUrl(string d) =>
             string.IsNullOrEmpty(ClientKey) ? d : d + $"&client_key={ClientKey}";

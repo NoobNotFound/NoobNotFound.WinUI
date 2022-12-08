@@ -5,12 +5,12 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
 
 namespace NoobNotFound.WinUI.Common.UI.Controls
 {
-    public sealed partial class TenorFlyout : Flyout, INotifyPropertyChanged
+    public sealed partial class TenorFlyout : Flyout
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
         public event EventHandler<Helpers.Tenor.JSON.SearchResult.Result>? ItemInvoked;
         public string APIKey { get; set; }
         public string ClientKey { get; set; }
@@ -22,7 +22,8 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
             set
             {
                 _GIFs = value;
-                PropertyChanged?.Invoke(this, new(null));
+              ir.ItemsSource = null;
+              ir.ItemsSource = GIFs;
             }
         }
         public TenorFlyout()
@@ -38,17 +39,41 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
             };
         }
 
-        private async void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        private async void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var itm = ((Models.TenorGIF)e.ClickedItem);
-            ItemInvoked.Invoke(this,itm.JSON);
-            await TenorClient.RegisterShare(itm.JSON.id);
-            this.Hide();
+            SPError.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+            var d = await TenorClient.Search(txtSearch.Text,30);
+            pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+
+            if (d != null)
+            {
+                GIFs = new ObservableCollection<Models.TenorGIF>(d.results.Select(x => new Models.TenorGIF() { ShowLoad = true, SearchTerm = txtSearch.Text, ImageSource = x.media_formats.tinygif.url, JSON = x, Tags = x.tags }));
+            }
+            else
+            {
+                GIFs.Clear();
+                SPError.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+            }
         }
 
-        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        private void Image_ImageOpened(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
+            try
+            {
+                ((Models.TenorGIF)(sender as Image).DataContext).ShowLoad = false;
+            }
+            catch { }
+        }
 
+        private async void ir_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var itm = ((Models.TenorGIF)e.ClickedItem);
+            ItemInvoked?.Invoke(this, itm.JSON);
+            pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+            await TenorClient.RegisterShare(itm.JSON.id, itm.SearchTerm);
+            this.Hide();
+            pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
         }
     }
 }

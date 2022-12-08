@@ -8,19 +8,41 @@
     xmlns:models="using:NoobNotFound.WinUI.Common.Models"
     mc:Ignorable="d">
 
-    <Grid Margin="-12">
+    <Grid Width="380" Height="420" Margin="-12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="txtSearch" TextChanged="txtSearch_TextChanged" HorizontalAlignment="Stretch" Grid.Row="0" PlaceholderText="Search Tenor GIFs"/>
-        <GridView ItemsSource="{x:Bind GIFs,Mode=OneWay}" ItemClick="GridView_ItemClick" SelectionMode="None" Grid.Row="2" Margin="0,5,0,0">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="models:TenorGIF" x:DefaultBindMode="OneWay">
-                    <Image MaxWidth="100" Height="60" Source="{x:Bind ImageSource}" ToolTipService.ToolTip="{x:Bind TagsString}"/>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ProgressBar x:Name="pbLoad" Visibility="Collapsed" Margin="0,3,0,0" IsIndeterminate="True" Grid.Row="0"/>
+            <GridView SelectionMode="None" IsItemClickEnabled="True" ItemClick="ir_ItemClick" Grid.Row="1" x:Name="ir" Margin="0,5,0,0">
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="CornerRadius" Value="7"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Width" Value="115"/>
+                    </Style>
+                </GridView.ItemContainerStyle>
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="models:TenorGIF">
+                        <Grid ToolTipService.ToolTip="{x:Bind TagsString}" x:DefaultBindMode="OneWay">
+                            <ProgressRing x:Name="LoadImage" Margin="30" VerticalAlignment="Center" HorizontalAlignment="Center" x:Load="{x:Bind ShowLoad}" IsIndeterminate="True"/>
+                            <Image Width="110" Source="{x:Bind ImageSource}" ImageOpened="Image_ImageOpened" />
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+            <StackPanel Grid.Row="1" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="SPError">
+                <FontIcon FontSize="18" FontFamily="Segoe UI Emoji" Glyph="&#x26A0;" HorizontalAlignment="Center" />
+                <TextBlock Text="Service not available!" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Flyout>
