@@ -12,9 +12,9 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
         private readonly ExpanderViewModel VM = new();
         public Expander()
         {
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///ResourceDictionaries/RightAlignedToggleSwitch.xaml") });
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///ResourceDictionaries/Expanders.xaml") });
             this.InitializeComponent();
-           // this.Loaded += (_,_) =>
-            //this.Content = new Helpers.CompositionControl { ContentTemplateSelector = ExpanderSelector, Content = VM };
         }
         public event RoutedEventHandler Click;
         /// <summary>

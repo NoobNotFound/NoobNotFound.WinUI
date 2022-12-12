@@ -8,16 +8,11 @@
     xmlns:ViewModels="using:NoobNotFound.WinUI.Common.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/ResourceDictionaries/RightAlignedToggleSwitch.xaml" />
-                <ResourceDictionary Source="/ResourceDictionaries/Expanders.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-
-            <conv:StringToVisibility x:Key="StrToVis" />
-
-            <conv:ExpanderTemplateSelector Style="{x:Bind VM.ExpanderStyle,Mode=OneWay}" x:Name="ExpanderSelector">
+    <local:CompositionControl
+            HorizontalContentAlignment="Stretch"
+            Content="{x:Bind VM}">
+        <local:CompositionControl.ContentTemplateSelector>
+            <conv:ExpanderTemplateSelector Style="{x:Bind VM.ExpanderStyle,Mode=OneWay}">
                 <conv:ExpanderTemplateSelector.Button>
                     <DataTemplate x:DataType="ViewModels:ExpanderViewModel" x:DefaultBindMode="OneWay">
                         <Button Click="OnButtonClick" Style="{StaticResource ActionCard}">
@@ -232,11 +227,6 @@
                     </DataTemplate>
                 </conv:ExpanderTemplateSelector.Disabled>
             </conv:ExpanderTemplateSelector>
-        </ResourceDictionary>
-    </UserControl.Resources>
-
-    <local:CompositionControl
-            HorizontalContentAlignment="Stretch"
-            Content="{x:Bind VM}"
-            ContentTemplateSelector="{StaticResource ExpanderSelector}" />
+        </local:CompositionControl.ContentTemplateSelector>
+    </local:CompositionControl>
 </UserControl>

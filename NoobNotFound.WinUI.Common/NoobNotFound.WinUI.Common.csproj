@@ -15,6 +15,12 @@
     <None Remove="UI.Controls\TitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Page Remove="ResourceDictionaries\RightAlignedToggleSwitch.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ResourceDictionaries\RightAlignedToggleSwitch.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
     /// <summary>
     /// A version of the ContentControl that works with the ContentTemplateSelector.
     /// </summary>
-    public class CompositionControl : ContentControl
+    internal class CompositionControl : ContentControl
     {
         /// <summary>
         /// Invoked when the value of the Content property changes. 
