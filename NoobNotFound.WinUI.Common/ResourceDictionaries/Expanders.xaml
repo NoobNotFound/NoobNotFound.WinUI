@@ -34,6 +34,9 @@
 
     <!--#region Cards-->
     <Thickness x:Key="ExpanderHeaderPadding">16,8,0,8</Thickness>
+    <Style x:Key="FontIconStyle" TargetType="FontIcon">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
     <conv:StringToVisibility x:Key="StrToVis" />
     <Style TargetType="Expander">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
