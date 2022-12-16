@@ -12,8 +12,8 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
         private readonly ExpanderViewModel VM = new();
         public Expander()
         {
-            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///ResourceDictionaries/RightAlignedToggleSwitch.xaml") });
-            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///ResourceDictionaries/Expanders.xaml") });
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///NoobNotFound.WinUI.Common/ResourceDictionaries/RightAlignedToggleSwitch.xaml") });
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///NoobNotFound.WinUI.Common/ResourceDictionaries/Expanders.xaml") });
             this.InitializeComponent();
         }
         public event RoutedEventHandler Click;
@@ -69,6 +69,33 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
         {
             get => VM.HeaderControls;
             set => VM.HeaderControls = value;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ExpanderViewModel.TitleFontSize"/>
+        /// </summary>
+        public int TitleFontSize
+        {
+            get => VM.TitleFontSize;
+            set => VM.TitleFontSize = value;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ExpanderViewModel.IconFontSize"/>
+        /// </summary>
+        public int IconFontSize
+        {
+            get => VM.IconFontSize;
+            set => VM.IconFontSize = value;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ExpanderViewModel.DescriptionFontSize"/>
+        /// </summary>
+        public int DescriptionFontSize
+        {
+            get => VM.DescriptionFontSize;
+            set => VM.DescriptionFontSize = value;
         }
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {

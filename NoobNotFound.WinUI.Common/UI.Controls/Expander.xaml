@@ -24,7 +24,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <FontIcon
-                                    Style="{ThemeResource FontIconStyle}"
+                                    FontSize="{x:Bind IconFontSize}"
                                     VerticalAlignment="Center"
                                     Glyph="{x:Bind Icon}" />
                                 <StackPanel
@@ -33,12 +33,12 @@
                                     Orientation="Vertical">
                                     <TextBlock
                                         VerticalAlignment="Center"
-                                        Style="{ThemeResource BodyTextBlockStyle}"
+                                    FontSize="{x:Bind TitleFontSize}"
                                         Text="{x:Bind Title}" />
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
-                                        Style="{ThemeResource CaptionTextBlockStyle}"
+                                        FontSize="{x:Bind DescriptionFontSize}"
                                         Text="{x:Bind Description}"
                                         TextWrapping="WrapWholeWords"
                                         Visibility="{x:Bind Description, Converter={StaticResource StrToVis}}" />
@@ -66,7 +66,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <FontIcon
-                                    Style="{ThemeResource FontIconStyle}"
+                                    FontSize="{x:Bind IconFontSize}"
                                     VerticalAlignment="Center"
                                     Glyph="{x:Bind Icon}" />
 
@@ -76,12 +76,12 @@
                                     Orientation="Vertical">
                                     <TextBlock
                                         VerticalAlignment="Center"
-                                        Style="{ThemeResource BodyTextBlockStyle}"
+                                        FontSize="{x:Bind TitleFontSize}"
                                         Text="{x:Bind Title}" />
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
-                                        Style="{ThemeResource CaptionTextBlockStyle}"
+                                        FontSize="{x:Bind DescriptionFontSize}"
                                         Text="{x:Bind Description}"
                                         TextWrapping="WrapWholeWords"
                                         Visibility="{x:Bind Description, Converter={StaticResource StrToVis}}" />
@@ -110,7 +110,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <FontIcon
-                                    Style="{ThemeResource FontIconStyle}"
+                                    FontSize="{x:Bind IconFontSize}"
                                         VerticalAlignment="Center"
                                         Glyph="{x:Bind Icon}" />
 
@@ -120,12 +120,12 @@
                                         Orientation="Vertical">
                                         <TextBlock
                                             VerticalAlignment="Center"
-                                            Style="{ThemeResource BodyTextBlockStyle}"
+                                            FontSize="{x:Bind TitleFontSize}"
                                             Text="{x:Bind Title}" />
                                         <TextBlock
                                             VerticalAlignment="Center"
                                             Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
-                                            Style="{ThemeResource CaptionTextBlockStyle}"
+                                            FontSize="{x:Bind DescriptionFontSize}"
                                             Text="{x:Bind Description}"
                                             Visibility="{x:Bind Description, Converter={StaticResource StrToVis}}" />
                                     </StackPanel>
@@ -158,7 +158,7 @@
 
                                 <FontIcon
                                     VerticalAlignment="Center"
-                                    Style="{ThemeResource FontIconStyle}"
+                                    FontSize="{x:Bind IconFontSize}"
                                     Glyph="{x:Bind Icon}" />
 
                                 <StackPanel
@@ -167,12 +167,12 @@
                                     Orientation="Vertical">
                                     <TextBlock
                                         VerticalAlignment="Center"
-                                        Style="{ThemeResource BodyTextBlockStyle}"
+                                        FontSize="{x:Bind TitleFontSize}"
                                         Text="{x:Bind Title}" />
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
-                                        Style="{ThemeResource CaptionTextBlockStyle}"
+                                        FontSize="{x:Bind DescriptionFontSize}"
                                         Text="{x:Bind Description}"
                                         TextWrapping="WrapWholeWords"
                                         Visibility="{x:Bind Description, Converter={StaticResource StrToVis}}" />
@@ -201,7 +201,7 @@
 
                                 <FontIcon
                                     VerticalAlignment="Center"
-                                    Style="{ThemeResource FontIconStyle}"
+                                    FontSize="{x:Bind IconFontSize}"
                                     Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
                                     Glyph="{x:Bind Icon}" />
 
@@ -212,12 +212,12 @@
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
-                                        Style="{ThemeResource BodyTextBlockStyle}"
+                                        FontSize="{x:Bind TitleFontSize}"
                                         Text="{x:Bind Title}" />
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"
-                                        Style="{ThemeResource CaptionTextBlockStyle}"
+                                        FontSize="{x:Bind DescriptionFontSize}"
                                         Text="{x:Bind Description}"
                                         TextWrapping="WrapWholeWords"
                                         Visibility="{x:Bind Description, Converter={StaticResource StrToVis}}" />

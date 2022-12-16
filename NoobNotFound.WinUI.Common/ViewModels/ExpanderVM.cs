@@ -44,6 +44,36 @@ namespace NoobNotFound.WinUI.Common.ViewModels
             set => Set(ref _icon, value);
         }
 
+
+        private int _titleFontSize = 14;
+        /// <summary>
+        /// Gets or sets the Fontsize for the expander Title.
+        /// </summary>
+        public int TitleFontSize
+        {
+            get => _titleFontSize;
+            set => Set(ref _titleFontSize, value);
+        }
+
+        private int _iconFontSize = 14;
+        /// <summary>
+        /// Gets or sets the Fontsize for the expander Title.
+        /// </summary>
+        public int IconFontSize
+        {
+            get => _iconFontSize;
+            set => Set(ref _iconFontSize, value);
+        }
+
+        private int _DescriptionFontSize = 12;
+        /// <summary>
+        /// Gets or sets the Fontsize for the expander Title.
+        /// </summary>
+        public int DescriptionFontSize
+        {
+            get => _DescriptionFontSize;
+            set => Set(ref _DescriptionFontSize, value);
+        }
         private object _controls;
         /// <summary>
         /// Gets or sets the content for the expander. This is

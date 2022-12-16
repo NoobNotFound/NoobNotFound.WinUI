@@ -17,7 +17,7 @@ namespace NoobNotFound.WinUI.Common.Helpers
         /// <summary>
         /// Add mica and the icon to the <paramref name="window"/>
         /// </summary>
-        public static void IntializeWindow(Window window,Windows.Storage.StorageFile iconFile)
+        public static void IntializeWindow(this Window window,Windows.Storage.StorageFile iconFile, MicaKind micakind = MicaKind.Base)
         {
             var icon = User32.LoadImage(
                 hInst: IntPtr.Zero,
@@ -30,14 +30,14 @@ namespace NoobNotFound.WinUI.Common.Helpers
             var Handle = WindowNative.GetWindowHandle(window);
             User32.SendMessage(Handle, User32.WindowMessage.WM_SETICON, (IntPtr)1, icon);
             User32.SendMessage(Handle, User32.WindowMessage.WM_SETICON, (IntPtr)0, icon);
-            new MicaBackground(window).TrySetMicaBackdrop();
+            new MicaBackground(window,micakind).TrySetMicaBackdrop();
         }
 
         /// <summary>
         /// Sets the customized titlebar if supported
         /// </summary>
         /// <exception cref="NullReferenceException"/>
-        public static void SetExtendedTitleBar(Window window, UIElement AppTitleBar = null)
+        public static void SetExtendedTitleBar(this Window window, UIElement AppTitleBar = null)
         {
             FrameworkElement RootUI = (FrameworkElement)window.Content;
             if (AppWindowTitleBar.IsCustomizationSupported())
@@ -146,12 +146,13 @@ namespace NoobNotFound.WinUI.Common.Helpers
     public class MicaBackground
     {
         private readonly Window _window;
-        private MicaController _micaController = new();
+        private MicaController _micaController;
         private SystemBackdropConfiguration _backdropConfiguration = new();
         private readonly WindowsSystemDispatcherQueueHelper _dispatcherQueueHelper = new();
 
-        public MicaBackground(Window window)
+        public MicaBackground(Window window,MicaKind kind)
         {
+            _micaController = new() { Kind= kind };
             _window = window;
         }
 
