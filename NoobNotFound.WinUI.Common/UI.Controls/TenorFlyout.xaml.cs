@@ -32,6 +32,7 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
             this.Opened += (_, _) =>
             {
                 TenorClient = new(APIKey, ClientKey);
+                txtSearch_TextChanged(null, null);
             };
             this.Closed += (_, _) =>
             {
@@ -39,11 +40,11 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
             };
         }
 
-        private async void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        private async void txtSearch_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs e)
         {
             SPError.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
-            var d = await TenorClient.Search(txtSearch.Text,30);
+            var d = string.IsNullOrEmpty(txtSearch.Text) ? await TenorClient.GetTrendings() : await TenorClient.Search(txtSearch.Text, 30);
             pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
 
             if (d != null)
@@ -72,6 +73,7 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
             ItemInvoked?.Invoke(this, itm.JSON);
             pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             await TenorClient.RegisterShare(itm.JSON.id, itm.SearchTerm);
+            txtSearch.Text = "";
             this.Hide();
             pbLoad.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
         }

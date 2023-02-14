@@ -14,7 +14,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtSearch" TextChanged="txtSearch_TextChanged" HorizontalAlignment="Stretch" Grid.Row="0" PlaceholderText="Search Tenor GIFs"/>
+        <AutoSuggestBox QueryIcon="Find" x:Name="txtSearch" TextChanged="txtSearch_TextChanged" HorizontalAlignment="Stretch" Grid.Row="0" PlaceholderText="Search Tenor GIFs"/>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
