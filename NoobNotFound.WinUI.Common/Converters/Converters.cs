@@ -28,14 +28,15 @@ namespace NoobNotFound.WinUI.Common.Converters
     }
     public class BoolToVisibility : IValueConverter
     {
+        public bool IsInverted { get; set; } = false;
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            return (value is bool b && b) ? Visibility.Visible : Visibility.Collapsed;
+            return (value is bool b && b && !IsInverted ) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return (value is bool b && b) ? Visibility.Visible : Visibility.Collapsed;
+            return (value is bool b && b && !IsInverted) ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }
