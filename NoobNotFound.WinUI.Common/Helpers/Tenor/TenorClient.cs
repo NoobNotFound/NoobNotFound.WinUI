@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 
-namespace NoobNotFound.WinUI.Common.Helpers.Tenor
+namespace NoobSharp.Common.WinUI.Helpers.Tenor
 {
     public class TenorClient : IDisposable
     {

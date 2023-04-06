@@ -2,7 +2,7 @@
 using Microsoft.UI.Xaml.Data;
 using System;
 
-namespace NoobNotFound.WinUI.Common.Converters
+namespace NoobSharp.Common.WinUI.Converters
 {
     public class StringToVisibility : IValueConverter
     {

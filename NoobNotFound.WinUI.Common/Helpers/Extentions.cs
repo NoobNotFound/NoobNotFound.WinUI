@@ -9,7 +9,7 @@ using WinRT.Interop;
 using Microsoft.UI.Windowing;
 using System.Collections.ObjectModel;
 
-namespace NoobNotFound.WinUI.Common.Helpers
+namespace NoobSharp.Common.WinUI.Helpers
 {
     public static class Extentions
     {

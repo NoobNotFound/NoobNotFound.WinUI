@@ -1,8 +1,8 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using NoobNotFound.WinUI.Common.Enums;
+using NoobSharp.Common.WinUI.Enums;
 
-namespace NoobNotFound.WinUI.Common.Converters
+namespace NoobSharp.Common.WinUI.Converters
 {
     #region ExpanderTemplateSelector
     public class ExpanderTemplateSelector : DataTemplateSelector

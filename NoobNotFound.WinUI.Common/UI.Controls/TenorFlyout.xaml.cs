@@ -1,5 +1,5 @@
 ﻿using Microsoft.UI.Xaml.Controls;
-using NoobNotFound.WinUI.Common.Helpers.Tenor;
+using NoobSharp.Common.WinUI.Helpers.Tenor;
 using CommunityToolkit.Mvvm;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System;
 using System.Linq;
 
-namespace NoobNotFound.WinUI.Common.UI.Controls
+namespace NoobSharp.Common.WinUI.UI.Controls
 {
     public sealed partial class TenorFlyout : Flyout
     {

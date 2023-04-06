@@ -1,10 +1,10 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Markup;
-using NoobNotFound.WinUI.Common.ViewModels;
-using NoobNotFound.WinUI.Common.Enums;
+using NoobSharp.Common.WinUI.ViewModels;
+using NoobSharp.Common.WinUI.Enums;
 
-namespace NoobNotFound.WinUI.Common.UI.Controls
+namespace NoobSharp.Common.WinUI.UI.Controls
 {
     [ContentProperty(Name = "Controls")]
     public sealed partial class Expander : UserControl
@@ -12,8 +12,8 @@ namespace NoobNotFound.WinUI.Common.UI.Controls
         private readonly ExpanderViewModel VM = new();
         public Expander()
         {
-            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///NoobNotFound.WinUI.Common/ResourceDictionaries/RightAlignedToggleSwitch.xaml") });
-            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///NoobNotFound.WinUI.Common/ResourceDictionaries/Expanders.xaml") });
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///NoobSharp.Common.WinUI/ResourceDictionaries/RightAlignedToggleSwitch.xaml") });
+            this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new("ms-appx:///NoobSharp.Common.WinUI/ResourceDictionaries/Expanders.xaml") });
             this.InitializeComponent();
         }
         public event RoutedEventHandler Click;

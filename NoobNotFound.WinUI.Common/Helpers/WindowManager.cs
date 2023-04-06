@@ -10,7 +10,7 @@ using Windows.ApplicationModel;
 using WinRT;
 using WinRT.Interop;
 
-namespace NoobNotFound.WinUI.Common.Helpers
+namespace NoobSharp.Common.WinUI.Helpers
 {
     public static class WindowManager
     {
