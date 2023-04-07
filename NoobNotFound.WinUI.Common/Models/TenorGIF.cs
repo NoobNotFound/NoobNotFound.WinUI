@@ -6,37 +6,25 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace NoobNotFound.WinUI.Common.Models
+namespace NoobSharp.Common.WinUI.Models
 {
-    internal class TenorGIF : ObservableObject
+    internal partial class TenorGIF : ObservableObject
     {
+        [ObservableProperty]
         private string _ImageSource;
 
-        public string ImageSource
-        {
-            get => _ImageSource;
-            set => SetProperty(ref _ImageSource, value);
-        }
+        [ObservableProperty]
         private bool _ShowLoad;
 
-        public bool ShowLoad
-        {
-            get => _ShowLoad;
-            set => SetProperty(ref _ShowLoad, value);
-        }
+        [ObservableProperty]
         private List<string> _Tags;
 
-        public List<string> Tags
-        {
-            get => _Tags;
-            set => SetProperty(ref _Tags, value);
-        }
+        [ObservableProperty]
+        private string _SearchTerm;
 
-        public string TagsString
-        {
-            get => string.Join(", ", Tags);            
-        }
-        public string SearchTerm { get; set; }
-        public Helpers.Tenor.JSON.SearchResult.Result JSON { get; set; }
+        [ObservableProperty]
+        private Helpers.Tenor.JSON.SearchResult.Result _JSON;
+
+        public string TagsString => string.Join(", ", Tags);
     }
 }

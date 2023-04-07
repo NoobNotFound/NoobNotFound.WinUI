@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 
-namespace NoobNotFound.WinUI.Common.Helpers.Tenor
+namespace NoobSharp.Common.WinUI.Helpers.Tenor
 {
     public class TenorClient : IDisposable
     {
@@ -47,13 +47,26 @@ namespace NoobNotFound.WinUI.Common.Helpers.Tenor
         
         private string ToClientKeyUrl(string d) =>
             string.IsNullOrEmpty(ClientKey) ? d : d + $"&client_key={ClientKey}";
-        
-        public async Task<JSON.SearchResult.Root> Search(string query,int limit = 12)
+
+        public async Task<JSON.SearchResult.Root> Search(string query, int limit = 12)
         {
             var q = HttpUtility.UrlEncode(query);
             try
             {
                 var r = await Get(ToClientKeyUrl($"search?q={q}&key={APIKey}&limit={limit}"));
+                var d = JsonConvert.DeserializeObject<JSON.SearchResult.Root>(r);
+                return d;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<JSON.SearchResult.Root> GetTrendings()
+        {
+            try
+            {
+                var r = await Get(ToClientKeyUrl($"featured?key={APIKey}"));
                 var d = JsonConvert.DeserializeObject<JSON.SearchResult.Root>(r);
                 return d;
             }

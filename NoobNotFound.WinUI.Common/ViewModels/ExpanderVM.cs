@@ -1,6 +1,6 @@
-﻿using NoobNotFound.WinUI.Common.Enums;
+﻿using NoobSharp.Common.WinUI.Enums;
 
-namespace NoobNotFound.WinUI.Common.ViewModels
+namespace NoobSharp.Common.WinUI.ViewModels
 {
     internal class ExpanderViewModel : ViewModel
     {

@@ -1,4 +1,4 @@
-﻿using NoobNotFound.WinUI.Common.Enums;
+﻿using NoobSharp.Common.WinUI.Enums;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -6,7 +6,7 @@ using Microsoft.UI.Xaml.Media;
 using System;
 using System.Threading.Tasks;
 
-namespace NoobNotFound.WinUI.Common.Helpers
+namespace NoobSharp.Common.WinUI.Helpers
 {
     /// <summary>
     /// A <see cref="ContentDialog"/> as a MessageBox...<br/>

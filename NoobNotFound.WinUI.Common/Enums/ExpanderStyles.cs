@@ -1,4 +1,4 @@
-﻿namespace NoobNotFound.WinUI.Common.Enums
+﻿namespace NoobSharp.Common.WinUI.Enums
 {
     /// <summary>
     /// The different expanders available for the

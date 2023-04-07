@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 
-namespace NoobNotFound.WinUI.Common.UI.Controls
+namespace NoobSharp.Common.WinUI.UI.Controls
 {
     /// <summary>
     /// A version of the ContentControl that works with the ContentTemplateSelector.

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NoobNotFound.WinUI.Common.Helpers.Tenor.JSON.SearchResult
+namespace NoobSharp.Common.WinUI.Helpers.Tenor.JSON.SearchResult
 {
     public class MediaFormat
     {

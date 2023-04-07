@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
-namespace NoobNotFound.WinUI.Common.ViewModels
+namespace NoobSharp.Common.WinUI.ViewModels
 {
     /// <summary>
     /// Base ViewModel implementation, wraps a <typeparamref name="Type"/>
